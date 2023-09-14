@@ -1,0 +1,23 @@
+.table thead tr th .head {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table tbody tr td {
+}
+
+.active {
+  color: #000000;
+  font-weight: bolder;
+  font-size: 20px;
+}
+p#description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -moz-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  overflow: hidden;
+}

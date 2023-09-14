@@ -1,0 +1,390 @@
+:root {
+  scroll-behavior: smooth;
+}
+
+/*nav item  */
+.navbar {
+  margin-bottom: 20px;
+}
+
+.top-nav .bi {
+  font-size: 2rem;
+}
+
+li .bi h4,
+.nav-item .bag {
+  top: -40%;
+  left: 60%;
+}
+
+.top-nav .badge-top {
+  top: -40%;
+  left: 70%;
+  color: red;
+}
+
+#navbarLinks > ul > li {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+@media screen and (max-width: 570px) {
+  #offcanvasNavbar2 {
+    width: 65%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #navbarLinks ul > li {
+    border: none;
+  }
+}
+
+/* carousel-caption */
+
+#home-carousel .carousel-caption {
+  width: 50%;
+  position: absolute;
+
+  top: 8%;
+  left: 45%;
+  line-height: 1.3;
+}
+
+@media screen and (min-width: 570px) {
+  #home-carousel .carousel-caption {
+    width: fit-content;
+  }
+
+  #home-carousel .carousel-caption .top + div {
+    width: fit-content;
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 997px) {
+  #home-carousel .carousel-caption {
+    width: 60%;
+    top: 15%;
+  }
+
+  #home-carousel .carousel-caption .top + div {
+    font-size: 4rem;
+  }
+}
+
+/* owl-carousel */
+.owl-carousel {
+  border: 2px solid white;
+}
+
+.owl-carousel .item-carousel {
+  color: #1b8bcc;
+}
+
+.item-icon .bi {
+  font-size: 3rem;
+}
+
+.item-content > h4 {
+  font-size: 18px;
+}
+
+.item-content > span {
+  font-size: 12px;
+}
+
+.icon-flipped {
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+}
+
+/* #owl-demo .item {
+  background: #a1def8;
+  padding: 30px 0px;
+  display: block;
+  margin: 5px;
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.owl-carousel .item {
+  height: 10rem;
+  background: #4DC7A0;
+  padding: 1rem;
+}
+
+.owl-prev.disable {
+  display: none !important;
+}
+
+.owl-next.disable {
+  display: none !important;
+}
+ */
+/* book  card */
+
+#book-card .rating {
+  display: flex;
+  justify-content: center;
+}
+
+#book-card .rating input {
+  display: none;
+}
+
+#book-card .rating label {
+  color: #ccc;
+  font-size: 2rem;
+}
+
+#book-card .rating label:hover,
+#book-card .rating label:hover ~ label,
+#book-card .rating input:checked ~ label {
+  color: #f0ad4e;
+}
+
+#book-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#book-card:hover .overlay {
+  opacity: 1;
+}
+
+#book-card {
+  height: 38rem;
+}
+
+#book-card .social-media {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#book-card .social-media a {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#book-card .social-media i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* end */
+
+/* banner */
+#spacial-banner .carousel-item img {
+  height: 100%;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 1));
+  /* box-shadow: 2px 3px 5px 5px rgba(240, 240, 240, 0.5); */
+}
+
+#spacial-banner .carousel-item {
+  height: 50.5rem;
+}
+
+#spacial-banner .carousel-control-prev,
+#spacial-banner .carousel-control-next {
+  width: 10%;
+}
+
+#spacial-banner .carousel-control-prev-icon,
+#spacial-banner .carousel-control-next-icon {
+  border-radius: 50%;
+  padding: 15px;
+}
+
+#spacial-banner .carousel-caption {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+}
+
+#spacial-banner .content {
+}
+
+#spacial-banner .content .book-title {
+  font-family: monospace;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #fff;
+  display: inline-block;
+  margin: 0;
+}
+
+#spacial-banner .content p + p {
+  font-size: 18px;
+  color: #000000;
+}
+
+#spacial-banner .content .total {
+  color: #686868;
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#spacial-banner .content .btn {
+  padding: 10px 40px;
+}
+
+@media screen and (min-width: 576px) {
+  #spacial-banner .carousel-item {
+    height: auto;
+  }
+
+  #spacial-banner .content .banner-title {
+    font-size: 3rem;
+  }
+
+  #spacial-banner .content .author,
+  #spacial-banner .content .total {
+    font-size: 1.5rem;
+  }
+}
+
+#spacial-banner .carousel-caption > .row {
+}
+
+/* news */
+.news {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+#news {
+  border: none;
+}
+
+/* Center-align Owl Carousel navigation */
+.owl-carousel .owl-nav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.owl-carousel .owl-nav button {
+  display: none;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  font-size: 4.5rem;
+  padding: 0;
+  color: #000000;
+  border-radius: 100%;
+}
+
+/* review */
+.bx-wrapper {
+  border: none;
+  box-shadow: none;
+}
+
+#bx-pager {
+  text-align: center;
+  margin-top: -30px;
+}
+
+#bx-pager a {
+  position: relative;
+  margin: 0 3px;
+  color: #272727;
+  text-decoration: none;
+}
+
+#bx-pager a .customer {
+  position: relative;
+}
+
+#bx-pager a .customer::after {
+  position: absolute;
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(253, 253, 253, 0.5);
+  opacity: 1;
+}
+
+#bx-pager a.active .customer::after {
+  opacity: 0;
+}
+
+/* resource */
+#resource .row .col-12 > div {
+  background: rgba(229, 229, 229, 1);
+}
+
+/* subscription */
+.subscription {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* footer  */
+.footer-separetor {
+  margin-bottom: 8rem;
+}
+
+footer .row {
+  margin-top: 10rem;
+}
+
+#social-links .bi {
+  font-size: 23px;
+}
+
+#social-links ul > li > a {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+@media screen and (min-width: 546px) {
+  footer {
+    font-size: 80%q;
+  }
+
+  .footer-separetor {
+    margin-top: 3rem;
+  }
+}

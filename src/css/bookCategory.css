@@ -1,0 +1,28 @@
+
+.table thead tr th{
+  
+}
+.table thead tr th .head {
+  padding: 0;
+  
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.col-1{
+  width: 5%;
+}
+.col-2{
+  width: 20%;
+}
+.col-3{
+  width: 65%;
+}
+.col-4{
+  width: 10%;
+}
+.active{
+ color: #FF0000;
+ font-weight: bolder;
+}

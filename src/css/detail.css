@@ -1,0 +1,40 @@
+.image-container img {
+  width: 100%;
+  object-fit: contan;
+}
+
+table{
+  width: 100%;
+  font-family: monospace;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+table th {}
+
+table th,
+table td {
+  padding: 15px 25px;
+  border: 1px solid rgba(123, 123, 123, 0.5)
+}
+
+tabs .nav-tabs,
+.reviews,
+.description {
+  border: 2px solid rgba(160, 160, 160, 0.4)
+}
+
+.description,
+.reviews {
+  padding: 10px;
+  font-size: 30px;
+}
+
+.description {
+  font-size: 19px;
+}
+
+.nav-tabs button {
+  font-size: 1.3rem;
+  border: 2px solid rgba(160, 160, 160, 0.4)
+}

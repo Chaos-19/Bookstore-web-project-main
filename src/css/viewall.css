@@ -1,0 +1,145 @@
+:root {
+  scroll-behavior: smooth;
+}
+
+/*nav item  */
+.navbar {
+  margin-bottom: 20px;
+}
+
+.top-nav .bi {
+  font-size: 2rem;
+}
+
+li .bi h4,
+.nav-item .bag {
+  top: -40%;
+  left: 60%;
+}
+
+.top-nav .badge-top {
+  top: -40%;
+  left: 70%;
+  color: red;
+}
+
+#navbarLinks > ul > li {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+@media screen and (max-width: 570px) {
+  #offcanvasNavbar2 {
+    width: 65%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #navbarLinks ul > li {
+    border: none;
+  }
+}
+
+/* book  card */
+
+#book-card .rating {
+  display: flex;
+  justify-content: center;
+}
+
+#book-card .rating input {
+  display: none;
+}
+
+#book-card .rating label {
+  color: #ccc;
+  font-size: 2rem;
+}
+
+#book-card .rating label:hover,
+#book-card .rating label:hover ~ label,
+#book-card .rating input:checked ~ label {
+  color: #f0ad4e;
+}
+
+#book-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#book-card:hover .overlay {
+  opacity: 1;
+}
+
+#book-card {
+  width: 100%;
+  height: 42rem;
+}
+@media (max-width: 570px) {
+  #book-card {
+    height: 53rem;
+  }
+}
+#book-card .social-media {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#book-card .social-media a {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#book-card .social-media i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* end */
+
+/* subscription */
+.subscription {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* footer  */
+.footer-separetor {
+  margin-bottom: 8rem;
+}
+
+footer .row {
+  margin-top: 10rem;
+}
+
+#social-links .bi {
+  font-size: 23px;
+}
+
+#social-links ul > li > a {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+@media screen and (min-width: 546px) {
+  footer {
+    font-size: 80%q;
+  }
+
+  .footer-separetor {
+    margin-top: 3rem;
+  }
+}

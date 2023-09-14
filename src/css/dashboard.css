@@ -1,0 +1,51 @@
+h1 {
+  font-family: sans-serif;
+}
+
+.icon {
+  text-align: center;
+  padding: 16px 21px;
+  box-sizing: border-box;
+  background: #0dd6b8;
+  border-radius: 50%;
+}
+
+/* Remove hover effect */
+#table-top .dropdown .dropdown-toggle:focus,
+/* #offcanvasToggler span:focus, */
+#offcanvasToggler:focus,
+/* #offcanvasToggler:active,
+#offcanvasToggler:not(:active),
+#offcanvasToggler span:active,  */
+/* #offcanvasToggler:not(:focus), */
+
+#table-top .dropdown .dropdown-toggle:not(:focus),
+#table-top .dropdown .dropdown-toggle:hover {
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove click effect */
+#table-top .dropdown .dropdown-toggle:active {
+  border: none;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 570px) {
+  #dashboard-offcanvas {
+    width: 60%;
+  }
+
+}
+#nav-collpsed{
+  z-index: 9;
+}
+
+@media (max-width: 750px) {
+  #nav-collpsed {
+    position: absolute;
+    width: 80%;
+    top: 101%;
+    margin: 0 auto;
+  }
+}
