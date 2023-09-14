@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="chaos">
+  <title></title>
+  <!-- Bootstrap core CSS -->
+  <link href="cdn_modules/bootstrap@5.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./src/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- swiper -->
+  <link rel="stylesheet" href="./src/bxslider/jquery.bxslider.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="./src/css/index.css">
+</head>
+
+<body>
+
+ <header>
+    <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light my-0" aria-label="navbar">
+      <div class="container-fluid m-0 p-0 d-flex flex-column">
+
+        <div class="row gap-3 mx-0 px-0 pt-2 py-lg-3 w-100 justify-content-center justify-content-lg-around align-items-center">
+
+          <div class="col-12 col-lg-auto d-flex justify-content-center">
+            <a class="navbar-brand" href="#">
+              <img src="./src/Image/logo_332x.png" style="width: 200px" alt="Logo" class="">
+            </a>
+          </div>
+
+          <div class="col-12 px-5 px-md-0 d-block col-md-5 justify-content-center">
+            <form role="search">
+              <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
+
+          <div class="col-12 col-lg-auto top-nav p-0" id="navbarLinks">
+            <ul class="nav nav-pills nav-fill  flex-lg-row-reverse">
+              <li class="nav-item pt-2 ">
+                <button class="navbar-toggler" id="navbarSideCollapse" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="bi bi-cart position-relative bagg">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item dropdown" id="user_profile">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person"></i>
+                </a>
+                <ul class="dropdown-menu p-" aria-labelledby="userProfileDropdown">
+                  <li><span class="dropdown-header text-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                      </svg>
+                    </span>
+                  </li>
+                     <li class="dropdown-item">User Id :<span id="user-id"></span></li>
+                  <li class="dropdown-item">User: <span id="user-name"> john@example.com</span></li>
+                  <li class="dropdown-item">Email: <span id="user-email"> john@example.com</span>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item btn btn-danger" id="logout" href="./Login.html">Logout</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="bi bi-heart position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-truck position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./cart.html">
+                  <i class="bi bi-cart position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning" id="cart-count">0</span></h3>
+                  </i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="offcanvas offcanvas-start bg-white" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+          <div class="offcanvas-header">
+            <h2 class="offcanvas-title display-2 fw-semibold" id="offcanvasNavbar2Label">Menu</h2>
+            <button type="button" class="btn-close btn-close-dark fs-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body py-lg-2">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-2 ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Books
+                </a>
+                <ul class="dropdown-menu fs-3">
+                  <li><a class="dropdown-item" href="#">Bestseller</a></li>
+                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
+                  <li><a class="dropdown-item" href="#">Limited offer</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About Us</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <div class="container my-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
+        <li class="breadcrumb-item">
+          <a class="link-body-emphasis" href="index.html">
+            <i class="bi bi-house-fill"></i>
+            <span class="visually-hidden">Home</span>
+          </a>
+        </li>
+        <li class="breadcrumb-item">
+          <a class="link-body-emphasis fw-semibold text-decoration-none" href="about.html">About</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col">
+      <img src="./src/Image/au_banner.jpg" alt="about page banner" class="img-fulid w-100">
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h1 class="display-1 text-uppercase">Nice to meet you</h1>
+      </div>
+      <div class="col">
+        <p class="fw-light fs-5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+        <p class="fs-5 fw-light">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-12 text-center">
+        <h2 class="display-2 text-uppercase">Our bord members</h2>
+      </div>
+      <div class="col-12 mt-5">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-12 col-md-6 text-center">
+            <div class="customer">
+              <img src="./src/Image/customer3.jpeg" alt="" class="rounded-circle img-thumbnail">
+              <div class="content mt-2">
+                <h4 class="text-capitalize">kalkidan getachew</h4>
+                <p class="fs-5 text-muted text-capitalize">chife executive officer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 text-center">
+            <div class="customer">
+              <img src="./src/Image/customer2.jpeg" alt="" class="rounded-circle img-thumbnail">
+              <div class="content mt-2">
+                <h4>Chaos kal</h4>
+                <p class="fs-5 text-muted">cheif Marketing officer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 text-center">
+            <div class="customer">
+              <img src="./src/Image/customer2.jpeg" alt="" class="rounded-circle img-thumbnail">
+              <div class="content mt-2">
+                <h4>Roger Edwards</h4>
+                <p class="fs-5 text-muted">chife design officer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 text-center">
+            <div class="customer">
+              <img src="./src/Image/customer3.jpeg" alt="" class="rounded-circle img-thumbnail">
+              <div class="content mt-2">
+                <h4>Roger Edwards</h4>
+                <p class="fs-5 text-muted">chife Technology officer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- review -->
+  <div class="container-fluid">
+    <div class="row gy-3 py-5 justify-content-center">
+      <div class="col-12 text-center">
+        <h1 class="fw-light display-5">OUR HAPPY CUSTOMERS</h1>
+      </div>
+      <div class="col-12 col-md-5">
+        <ul class="bxslider">
+          <li>
+            <p class="fst-italic text-center">erspiciatis unde omnis iste natus error sit voluptatem accpraesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</p>
+          </li>
+          <li>
+            <p class="fst-italic text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.</p>
+          </li>
+          <li>
+            <p class="fst-italic text-center">riure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praese</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div id="bx-pager">
+            <div class="row justify-content-center gap-2">
+              <a href="" data-slide-index="0" class="col-md-3">
+                <div class="customer">
+                  <img src="./src/Image/customer1.jpeg" alt="" class="rounded-circle img-thumbnail">
+                  <div class="content mt-2">
+                    <h4>Roger Edwards</h4>
+                    <p class="fs-5 text-muted">block lover</p>
+                  </div>
+                </div>
+              </a>
+              <a href="" data-slide-index="1" class="col-md-3">
+                <div class="customer">
+                  <img src="./src/Image/customer2.jpeg" alt="" class="rounded-circle img-thumbnail">
+                  <div class="content mt-2">
+                    <h4>Roger Edwards</h4>
+                    <p class="fs-5 text-muted">block lover</p>
+                  </div>
+                </div>
+              </a>
+              <a href="" data-slide-index="2" class="col-md-3">
+                <div class="customer">
+                  <img src="./src/Image/customer3.jpeg" alt="" class="rounded-circle img-thumbnail">
+                  <div class="content mt-2">
+                    <h4>Roger Edwards</h4>
+                    <p class="fs-5 text-muted">block lover</p>
+                  </div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator py-5"></div>
+  <!-- resources -->
+
+  <div class="container" id="resource">
+    <div class="row g-3 gy-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="text-center text-primary py-5">
+          <img src="./src/Image/icon-custom_180x.png" alt="">
+          <h1 class="display-2 mt-2">130,089</h1>
+          <p class="fs-5">Happy Customers</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="text-center text-primary py-5">
+          <img src="./src/Image/icon_book_180x.png" alt="">
+          <h1 class="display-2 mt-2">300,089k</h1>
+          <p class="fs-5">Book Collections</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="text-center text-primary py-5">
+          <img src="./src/Image/icon_map_180x.png" alt="">
+          <h1 class="display-2 mt-2">13,089</h1>
+          <p class="fs-5">Our Store Around the World</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator py-5 footer-separetor"></div>
+  <!-- section footer -->
+  <div class="container-fluid bg-primary bg-gardient">
+    <div class="container position-relative">
+
+      <div class="row subscription position-abolute">
+
+        <div class="col-11 col-md-12 col-lg-9 text-center py-5 px-md-5 card shadow rounded-3">
+          <form class="px-lg-5">
+            <h5 class="display-6 fw-light text-uppercase mb-4">get spacial offers in your inbox</h5>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-3 align-items-center mt-2 px-3">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control form-control-lg" placeholder="Email address">
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg py-md-2" type="button">Subscribe</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+
+      </div>
+
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <img src="./src/Image/logo_332x.png" class="d-block" style="width:50%" alt="">
+            <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="text-white fs-4">learn more about us</p>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <h5><i class="bi bi-buildings"></i> OUR MAIN OFFICE</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">542 W. 27th Street, 4th Floor, New York, New York, United States</a></li>
+              <li class="nav-item mb-2">Phone:<a href="#" class="nav-link p-0 text-body-secondary">+251 988741784</a></li>
+              <li class="nav-item mb-2">Mail:<a href="#" class="nav-link p-0 text-body-secondary">kalgetachew375@gmail.com</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5" id="social-links">
+            <h5 class="text-uppercase"><i class="bi bi-link"></i> keep in touch with us</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-facebook"></i>Facebook</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-twitter"></i>Twitter</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-instagram"></i>Instagram</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-pinterest"></i>Pinterest</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-youtube"></i>YouTube</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <h5 class="text-uppercase"><i class="bi bi-info-circle"></i> Information</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">help centre</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Exchange and return</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gift card policy</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Payment Methods</a></li>
+            </ul>
+          </div>
+
+
+          <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top fs-3">
+            <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-twitter"></i></a></li>
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-instagram"></i></a></li>
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-facebook"></i></a></li>
+            </ul>
+          </div>
+      </footer>
+    </div>
+  </div>
+  </div>
+
+  <script type="text/javascript" src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="cdn_modules/jquery@3.7.0/jquery.min.js"></script>
+  <script src="./src/bxslider/jquery.bxslider.js"></script>
+  <script>
+    $('.bxslider').bxSlider({
+      mode: 'fade',
+      pagerCustom: '#bx-pager',
+      controls:false,
+    });
+  </script>
+    <script src="./src/js/header.js"></script>
+</body>
+
+</html>

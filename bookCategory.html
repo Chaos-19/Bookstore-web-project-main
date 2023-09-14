@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dashboard</title>
+  <!-- Bootstrap core CSS -->
+  <link href="cdn_modules/bootstrap@5.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./src/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- apexhart -->
+  <link rel="stylesheet" href="cdn_modules/apexcharts@3.41.1/apexcharts.min.css">
+  <link rel="stylesheet" href="./src/css/dashboard.css">
+  <link rel="stylesheet" href="./src/css/bookCategory.css">
+
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-dark bg-dark fixed-top" aria-label="Offcanvas navbar large">
+      <div class="container-fluid justify-content-between">
+        <div class="navbar-brand">
+          <button id="offcanvasToggler" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#dashboard-offcanvas" aria-controls="nav" aria-label="Toggle navigation">
+            <span class="bi bi-justify-left fs-1"></span>
+          </button>
+          <a class="ms-2" href="#"><i class="bi bi-book fs-1"></i></a>
+        </div>
+
+        <div class="d-none d-md-block">
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+
+
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#nav-collpsed" aria-controls="nav-collpsed" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+
+
+        <div class="collapse navbar-collapse text-bg-dark mx-5 mx-md-0" id="nav-collpsed">
+          <ul class="navbar-nav navbar-fill d-flex align-items-center flex-row-reverse  gap-3 fs-1">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                <img src="./src/Image/customer1.jpeg" alt="" class="img-circle w-50 rounded-circle">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-envelope"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-bell"></i>
+              </a>
+            </li>
+            <li class="nav-item d-md-none">
+              <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#na" aria-expanded="false">
+                <i class="bi bi-search"></i>
+              </a>
+              <div class="collapse position-absolute top-100 end-0" id="na">
+                <div class=" px-4 py-2 text-bg-dark w-100">
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="dashboard-offcanvas" aria-labelledby="offcanvasLabel">
+          <div class="offcanvas-header">
+            <h3 class="offcanvas-title" id="offcanvasLabel">Admin Dashboard</h3>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./dashboard.html">
+                  <i class="bi bi-house"></i> Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./bookCategory.html">
+                  <i class="bi bi-grid"></i> Books Category
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-journal"></i> Author
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./books.html">
+                  <i class="bi bi-journals"></i> Books
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="separator py-5"></div>
+
+  <main>
+    <div class="container px-3">
+      <div class="row">
+        <div class="col border shadow rounded py-3 px-0">
+          <div class="top d-flex justify-content-between align-items-center border-bottom py-4 px-3">
+            <h5>Catagoriy List</h5>
+            <button class="btn btn-primary d-inline-flex align-items-center" type="button" data-bs-toggle="modal" data-bs-target="#modalAddCategory">Add New Category
+            </button>
+
+
+            <div class="modal fade" id="modalAddCategory" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+              <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-4" id="addCategory">Add New Category</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body d-md-flex align-items-center">
+
+                    <div class="container">
+
+                      <div class="row p-0">
+                        <div class="col">
+                          <form action="" class="my-3">
+                            <div class="form-group">
+                              <label for="categoryname" class="form-label fs-4">Category Name :</label>
+                              <input type="text" class="form-control form-control-lg" name="categoryname">
+                            </div>
+                            <div class="form-group mt-3">
+                              <label for="categorydescription" class="form-label fs-4">Category Description :</label>
+                              <textarea name="bookdescription" id="categorydescription" rows="7" class="w-100 border border-warning rounded-2 ps-2"></textarea>
+                            </div>
+                            <div class="form-group my-3">
+                              <input type="submit" name="submit" id="submit" value="Add book" class="btn btn-outline-primary btn-lg d-none d-md-block" />
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-outline-primary d-md-none">Add Book</button>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+          </div>
+          <div class="sub my-3 px-3 py-4">
+            <div class="entries d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
+              <div class="d-flex flex-row justify-content-center justify-content-md-start align-items-center fs-5">show
+                <input list="entriesNo" class="form-control  fs-6 mx-2" style="width:15%;">
+                <datalist id="entriesNo">
+                  <option value="1"></option>
+                  <option value="2"></option>
+                  <option value="3"></option>
+                  <option value="4"></option>
+                  <option value="5"></option>
+                </datalist>
+                entries
+              </div>
+              <div class="px-md-0">
+                <form class="d-flex mt-3" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive px-3">
+
+            <table class="table table-bordered">
+
+              <thead>
+
+                <tr>
+
+                  <th scope="col" class="col-1">
+                    <div class="head">
+                      No
+                      <span class="order d-flex">
+                        <i class="bi bi-arrow-up"></i>
+                        <i class="bi bi-arrow-down"></i>
+                      </span>
+                    </div>
+                  </th>
+                  <th scope="col" class="col-2">
+                    <div class="head">
+                      Category Name
+                      <span class="order d-flex">
+                        <i class="bi bi-arrow-up"></i>
+                        <i class="bi bi-arrow-down"></i>
+                      </span>
+                    </div>
+                  </th>
+                  <th scope="col" class="col-3">
+                    <div class="head">
+                      Category Description
+                      <span class="order d-flex">
+                        <i class="bi bi-arrow-up"></i>
+                        <i class="bi bi-arrow-down"></i>
+                      </span>
+                    </div>
+                  </th>
+                  <th scope="col" class="col-4">
+                    <div class="head">
+                      Action
+                      <span class="order d-flex">
+                        <i class="bi bi-arrow-up"></i>
+                        <i class="bi bi-arrow-down"></i>
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td>1</td>
+                  <td> General Books</td>
+                  <td>
+                    <span>
+                      <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a scelerisque. Etiam feugiat luctus est, vel commodo odio rhoncus sit amet
+                      </p>
+                    </span>
+                  </td>
+                  <td>
+                    <div class="edit-btn">
+                      <i class="bi bi-trash"></i>
+                      <i class="bi bi-pen"></i>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <div class="separator pb-4"></div>
+
+  <!-- footer -->
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="./index.html" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <img src="./src/Image/logo_332x.png" class="w-100" alt="">
+        </a>
+        <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2023 Company, Inc</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-body-secondary" href="#">
+            <i class="bi bi-twitter fs-1"></i>
+          </a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#">
+            <i class="bi bi-instagram fs-1"></i>
+          </a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#">
+            <i class="bi bi-facebook fs-1"></i>
+          </a></li>
+      </ul>
+    </footer>
+  </div>
+
+
+
+  <script type="text/javascript" src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="cdn_modules/moment.js@2.29.4/moment.min.js"></script>
+  <script type="text/javascript" src="cdn_modules/jquery@3.7.0/jquery.slim.min.js"></script>
+  <script type="text/javascript" src="cdn_modules/apexcharts@3.41.1/apexcharts.min.js"></script>
+
+  <script src="./src/js/bookcategory.js"></script>
+
+
+</body>
+
+</html>

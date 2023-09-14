@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="chaos">
+  <title></title>
+  <!-- Bootstrap core CSS -->
+  <link href="cdn_modules/bootstrap@5.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./src/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- swiper -->
+  <link rel="stylesheet" href="./src/bxslider/jquery.bxslider.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="./src/css/viewall.css">
+</head>
+
+<body>
+
+ <header>
+    <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light my-0" aria-label="navbar">
+      <div class="container-fluid m-0 p-0 d-flex flex-column">
+
+        <div class="row gap-3 mx-0 px-0 pt-2 py-lg-3 w-100 justify-content-center justify-content-lg-around align-items-center">
+
+          <div class="col-12 col-lg-auto d-flex justify-content-center">
+            <a class="navbar-brand" href="#">
+              <img src="./src/Image/logo_332x.png" style="width: 200px" alt="Logo" class="">
+            </a>
+          </div>
+
+          <div class="col-12 px-5 px-md-0 d-block col-md-5 justify-content-center">
+            <form role="search">
+              <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
+
+          <div class="col-12 col-lg-auto top-nav p-0" id="navbarLinks">
+            <ul class="nav nav-pills nav-fill  flex-lg-row-reverse">
+              <li class="nav-item pt-2 ">
+                <button class="navbar-toggler" id="navbarSideCollapse" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="bi bi-cart position-relative bagg">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item dropdown" id="user_profile">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person"></i>
+                </a>
+                <ul class="dropdown-menu p-" aria-labelledby="userProfileDropdown">
+                  <li><span class="dropdown-header text-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                      </svg>
+                    </span>
+                  </li>
+                     <li class="dropdown-item">User Id :<span id="user-id"></span></li>
+                  <li class="dropdown-item">User: <span id="user-name"> john@example.com</span></li>
+                  <li class="dropdown-item">Email: <span id="user-email"> john@example.com</span>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item btn btn-danger" id="logout" href="./Login.html">Logout</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="bi bi-heart position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-truck position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./cart.html">
+                  <i class="bi bi-cart position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning" id="cart-count">0</span></h3>
+                  </i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="offcanvas offcanvas-start bg-white" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+          <div class="offcanvas-header">
+            <h2 class="offcanvas-title display-2 fw-semibold" id="offcanvasNavbar2Label">Menu</h2>
+            <button type="button" class="btn-close btn-close-dark fs-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body py-lg-2">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-2 ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Books
+                </a>
+                <ul class="dropdown-menu fs-3">
+                  <li><a class="dropdown-item" href="#">Bestseller</a></li>
+                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
+                  <li><a class="dropdown-item" href="#">Limited offer</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About Us</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb p-3 rounded-3">
+          <li class="breadcrumb-item">
+            <a class="link-body-emphasis" href="./index.html">
+              <i class="bi bi-house-fill"></i>
+              <span class="visually-hidden">Home</span>
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a id="page-link" class="link-body-emphasis fw-semibold text-decoration-none" href="./viewable.html?category=">Book name</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+   <div class="separator pt-2"></div>
+    <!-- section Best seller -->
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-3" id="viewall">
+      </div>
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <button id="more" class="btn btn-outline-primary btn-lg rounded">Loade More</button>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <div class="separator py-5 footer-separetor"></div>
+  <!-- section footer -->
+  <div class="container-fluid bg-primary bg-gardient">
+    <div class="container position-relative">
+
+      <div class="row subscription position-abolute">
+
+        <div class="col-11 col-md-12 col-lg-9 text-center py-5 px-md-5 card shadow rounded-3">
+          <form class="px-lg-5">
+            <h5 class="display-6 fw-light text-uppercase mb-4">get spacial offers in your inbox</h5>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-3 align-items-center mt-2 px-3">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control form-control-lg" placeholder="Email address">
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg py-md-2" type="button">Subscribe</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <img src="./src/Image/logo_332x.png" class="d-block" style="width:50%" alt="">
+            <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="text-white fs-4">learn more about us</p>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <h5><i class="bi bi-buildings"></i> OUR MAIN OFFICE</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">542 W. 27th Street, 4th Floor, New York, New York, United States</a></li>
+              <li class="nav-item mb-2">Phone:<a href="#" class="nav-link p-0 text-body-secondary">+251 988741784</a></li>
+              <li class="nav-item mb-2">Mail:<a href="#" class="nav-link p-0 text-body-secondary">kalgetachew375@gmail.com</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5" id="social-links">
+            <h5 class="text-uppercase"><i class="bi bi-link"></i> keep in touch with us</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-facebook"></i>Facebook</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-twitter"></i>Twitter</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-instagram"></i>Instagram</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-pinterest"></i>Pinterest</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-youtube"></i>YouTube</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <h5 class="text-uppercase"><i class="bi bi-info-circle"></i> Information</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">help centre</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Exchange and return</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gift card policy</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Payment Methods</a></li>
+            </ul>
+          </div>
+
+
+          <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top fs-3">
+            <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-twitter"></i></a></li>
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-instagram"></i></a></li>
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-facebook"></i></a></li>
+            </ul>
+          </div>
+      </footer>
+    </div>
+  </div>
+  </div>
+
+  <script type="text/javascript" src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="cdn_modules/jquery@3.7.0/jquery.min.js"></script>
+  <script src="./src/bxslider/jquery.bxslider.js"></script>
+  
+    <script src="./src/js/header.js"></script>
+    <script src="./src/js/viewall.js"></script>
+    
+</body>
+
+</html>

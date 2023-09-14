@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="author" content="chaos" />
+    <title>Signup</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./src/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+
+  <body>
+    <div role="alert" class="alert d-none alert-danger alert-xs"></div>
+
+    <section class="vh-100">
+      <div class="container py-4 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+          <div
+            class="col-12 col-sm-9 col-md-8 col-lg-5 border border p-3 text-center shadow">
+            <div
+              class="col-12 col-sm-11 border border-success d-none col-md-10 col-lg-5 overlay d-flex flex-column justify-content-center align-items-center">
+              <h3 class="">Thank you've successfully Registered</h3>
+              <p>please Login to your Account</p>
+              <a
+                href="./Login.html"
+                class="btn btn-link btn-outline-success btn-lg m"
+                >Login</a>
+            </div>
+
+            <h1 class="text-capitalize text-white">register now</h1>
+            <form method="post" id="signin">
+              <div class="form-group form-floating">
+                <input
+                  required
+                  aria-required="please enter your name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                  name="name"
+                />
+                <label for="floatingInput">Name</label>
+              </div>
+              <div class="form-group form-floating">
+                <input
+                  required
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  placeholder="Email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                />
+                <label for="floatingInput">Email</label>
+              </div>
+              <div class="form-group form-floating">
+                <input
+                  required
+                  type="password"
+                  class="form-control"
+                  placeholder="password"
+                  name="password"
+                  minlength="6"
+                />
+                <label for="floatingInput">password</label>
+              </div>
+              <div class="form-group form-floating">
+                <input
+                  required
+                  type="password"
+                  class="form-control"
+                  placeholder="conform password"
+                  name="cpassword"
+                  minlength="6"
+                />
+                <label for="floatingInput">conform password</label>
+              </div>
+              <!--    <div class="form-group">
+                <select class="form-select" name="role">
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div> -->
+              <div
+                role="alert"
+                class="alert d-none alert-danger alert-sm"
+              ></div>
+              <div class="form-group">
+                <input
+                  required
+                  type="submit"
+                  class="btn btn-primary py-3 w-100"
+                  value="Register Now"
+                  name="submit"
+                />
+              </div>
+              <div class="mb-3 link">
+                Already have an account ?
+                <a href="./Login.html" class="btn btn-link btn-lg">Login</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./src/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- custom -->
+    <script type="module" src="./src/js/signin.js"></script>
+  </body>
+</html>

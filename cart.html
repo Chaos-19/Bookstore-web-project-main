@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="chaos">
+  <title></title>
+  <!-- Bootstrap core CSS -->
+  <link href="cdn_modules/bootstrap@5.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./src/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- owl-carousel -->
+  <link href="cdn_modules/OwlCarousel2@2.3.4/assets/owl.carousel.css" rel="stylesheet">
+  <link href="cdn_modules/OwlCarousel2@2.3.4/assets/owl.theme.default.css" rel="stylesheet">
+  <link href="cdn_modules/owl-carousel@1.3.3/owl.transitions.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./src/css/index.css">
+  <link rel="stylesheet" href="./src/css/cart.css">
+</head>
+
+<body>
+
+ <header>
+    <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light my-0" aria-label="navbar">
+      <div class="container-fluid m-0 p-0 d-flex flex-column">
+
+        <div class="row gap-3 mx-0 px-0 pt-2 py-lg-3 w-100 justify-content-center justify-content-lg-around align-items-center">
+
+          <div class="col-12 col-lg-auto d-flex justify-content-center">
+            <a class="navbar-brand" href="#">
+              <img src="./src/Image/logo_332x.png" style="width: 200px" alt="Logo" class="">
+            </a>
+          </div>
+
+          <div class="col-12 px-5 px-md-0 d-block col-md-5 justify-content-center">
+            <form role="search">
+              <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
+
+          <div class="col-12 col-lg-auto top-nav p-0" id="navbarLinks">
+            <ul class="nav nav-pills nav-fill  flex-lg-row-reverse">
+              <li class="nav-item pt-2 ">
+                <button class="navbar-toggler" id="navbarSideCollapse" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </li>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="bi bi-cart position-relative bagg">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item dropdown" id="user_profile">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person"></i>
+                </a>
+                <ul class="dropdown-menu p-" aria-labelledby="userProfileDropdown">
+                  <li><span class="dropdown-header text-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                      </svg>
+                    </span>
+                  </li>
+                     <li class="dropdown-item">User Id :<span id="user-id"></span></li>
+                  <li class="dropdown-item">User: <span id="user-name"> john@example.com</span></li>
+                  <li class="dropdown-item">Email: <span id="user-email"> john@example.com</span>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item btn btn-danger" id="logout" href="./Login.html">Logout</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="bi bi-heart position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-truck position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  </i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./cart.html">
+                  <i class="bi bi-cart position-relative">
+                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning" id="cart-count">0</span></h3>
+                  </i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="offcanvas offcanvas-start bg-white" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+          <div class="offcanvas-header">
+            <h2 class="offcanvas-title display-2 fw-semibold" id="offcanvasNavbar2Label">Menu</h2>
+            <button type="button" class="btn-close btn-close-dark fs-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body py-lg-2">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-2 ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Books
+                </a>
+                <ul class="dropdown-menu fs-3">
+                  <li><a class="dropdown-item" href="#">Bestseller</a></li>
+                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
+                  <li><a class="dropdown-item" href="#">Limited offer</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About Us</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container mt-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb p-3 rounded-3">
+          <li class="breadcrumb-item">
+            <a class="link-body-emphasis" href="index.html">
+              <i class="bi bi-house-fill"></i>
+              <span class="visually-hidden">Home</span>
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a class="link-body-emphasis fw-semibold text-decoration-none" href="detail.html">Your Shopping Cart</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="separator p-4"></div>
+   
+     <div class="d-none text-center" id="emptycart">
+       <p>Your Shopping <i class="bi-cart-fill"></i> is empty </p>
+       <a href="./index.html" class="link text-decoration-none">continue shopping</a>
+     </div>  
+
+    <div class="container" id="container">
+      <div class="row gy-4">
+        <div class="col-12 d-none d-md-block">
+          <table>
+            <thead>
+              <tr>
+                <th class="item">Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody class="p-0">
+             <!--  <tr>
+                <td class="p-0 border border-warning">
+                  <div class="container  py-3">
+                    <div class="row m-0 align-items-md-center p-0">
+                      <div class="col-4 p-0">
+                        <img id="bookimg" src="./src/Image/1_380x.jpeg" class="d-block w-100" alt="">
+                      </div>
+                      <div class="col-6 text-start content flex-">
+                        <span class="d-block title">here ditary</span>
+                        <span class="d-block author">Charlie's ditary</span>
+                        <span class="d-block color">red</span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-1">
+                  $900
+                </td>
+                <td class="px-1">
+
+                  <div class="col d-inline-flex border m-0">
+                    <button type="button" class="btn btn-outline-secondary"><i class="bi bi-chevron-up"></i></button>
+                    <input disabled type="number" name="quantity" id="quantity" value="50" class="form-control form-control-lg flex-grow-0 text-center" />
+                    <button type="button" class="btn btn-outline-secondary"><i class="bi bi-chevron-down"></i></button>
+                  </div>
+                </td>
+                <td class="px-2 position-relative text-center">
+                  $10000
+          <div class="position-absolute bottom-0 d-flex align-items-center gap-2">
+              <button  class="btn-close btn-sm" type="button"></button><span class="text-sm">remove</span>
+                </div>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+        <div class="col-12 d-md-none">
+          <div class="container p-2">
+            <div class="row">
+              <div class="col d-flex justify-content-between fs-2">
+                <p>Total</p>
+                <p id="totalprice">$1,6780.8</p>
+              </div>
+            </div>
+            <div class="row row-cols-1 p-0 gy-3" id="cart-card">
+              <!-- cart-description -->
+            <!--   <div class="col  border shadow-sm" id="cart-description">
+                <div class="row m-0 p-0 align-items-center">
+                  <div class="col-3 p-0">
+                    <img id="bookimg" src="./src/Image/1_380x.jpeg" class="d-block w-100" alt="">
+                  </div>
+                  <div class="col-5 text-start cart-content">
+                    <span class="d-block fs-4 title">here ditary</span>
+                    <span class="d-block fs-6 author">Charlie's ditary</span>
+                    <div class="col d-inline-flex mt-1" id="quantitySet">
+                      <button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-up"></i></button>
+                      <input disabled type="number" name="quantity" id="quantity" value="50" class="form-control form-control-sm text-center" />
+                      <button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-down"></i></button>
+                    </div>
+                    <span class="d-block mt-2 fs-3" id="totalprice">$1,6780.8</span>
+                  </div>
+                  <div class="col-2 ms-auto">
+                    <button  class="btn-close" type="button"></button>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- end -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-between pt-4" id="cart-btns">
+          <button class="btn btn-outline-primary btn-lg fs-4 px-md-5 py-md-3 rounded-pill text-uppercase" type="button">continue Shopping</button>
+          <button id="clearCart" class="btn btn-primary rounded-pill fs-4 px-md-5 text-uppercase" type="button">Clear Cart</button>
+        </div>
+        <div class="col-12">
+          <h2 class="display-6">Add a note to your order</h2>
+          <textarea class="rounded-3" name="" id="" cols="" rows="7" id="cart-note"></textarea>
+        </div>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-primary py-3">
+              <h3 class="text-capitalize display-5 text-white">order summary</h3>
+            </div>
+            <div class="card-body">
+              <div class="item-description d-flex justify-content-between align-items-center fw-light">
+                <span class="text-capitalize d-block fs-1">subtotal(<span id="itemsNo">18</span>items)</span>
+                <span class="d-block fs-1" id="totalItemprice">$16780.8</span>
+              </div>
+              <div class="form-check mt-3 d-flex align-items-center gap-3">
+                <input class="form-check-input p-md-3" type="checkbox" name="" id="box" />
+                <label class="form-check-label fs-3 fw-light" for="box">
+                  <a class="text-decoration-none" href="#">I agree with the terms and conditions</a>
+                </label>
+              </div>
+              <div class="btn-container text-center py-3">
+                <button class="btn btn-outline-primary btn-lg rounded-pill px-md-5 py-md-3" type="button">Proceed To Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <h3 class="display-6">Payment Methods</h3>
+          <div class="methods">
+            <img src="./src/Image/footer-payment.png" alt="payment methods">
+          </div>
+
+
+          <div class="accordion fs-1 mt-4" id="myaccordion">
+            <div class="accordion-item">
+              <h2 class="myaccordion-heading m-0">
+                <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#myaccordion-plaintext"><span class="display-5">Calculate shipping</span></button>
+              </h2>
+            </div>
+            <div id="myaccordion-plaintext" class="accordion-collapse collapse">
+              <div class="accordion-body p-0 pt-3">
+                <form action="input-group">
+                  <div class="input-group">
+                    <select class="form-select form-controlform-control-lg py-3 fs-3" id="country">
+                      <option selected>Ethiopia</option>
+                      <option value="1">USA</option>
+                      <option value="2">Addis ababa</option>
+                      <option value="3">Debre tabor</option>
+                    </select>
+                  </div>
+                  <div class="input-group mt-2">
+                    <input class="form-control form-control-lg fs-3" type="number" name="" id="" value="" placeholder="postal zip code " />
+                  </div>
+                  <div class="btn-container text-center py-3">
+                    <button class="btn btn-outline-primary btn-lg rounded-pill px-md-5 py-md-3" type="button">Calculate</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="separator py-3"></div>
+
+  </main>
+
+  <div class="separator py-5 footer-separetor"></div>
+  <!-- section footer -->
+  <div class="container-fluid bg-primary bg-gardient">
+    <div class="container position-relative">
+
+      <div class="row subscription position-abolute">
+
+        <div class="col-11 col-md-12 col-lg-9 text-center py-5 px-md-5 card shadow rounded-3">
+          <form class="px-lg-5">
+            <h5 class="display-6 fw-light text-uppercase mb-4">get spacial offers in your inbox</h5>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-3 align-items-center mt-2 px-3">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control form-control-lg" placeholder="Email address">
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg py-md-2" type="button">Subscribe</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+
+      </div>
+
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <img src="./src/Image/logo_332x.png" class="d-block" style="width:50%" alt="">
+            <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="text-white fs-4">learn more about us</p>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <h5><i class="bi bi-buildings"></i> OUR MAIN OFFICE</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">542 W. 27th Street, 4th Floor, New York, New York, United States</a></li>
+              <li class="nav-item mb-2">Phone:<a href="#" class="nav-link p-0 text-body-secondary">+251 988741784</a></li>
+              <li class="nav-item mb-2">Mail:<a href="mailto:kalgetachew375@gmail.com" class="nav-link p-0 text-body-secondary">kalgetachew375@gmail.com</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5" id="social-links">
+            <h5 class="text-uppercase"><i class="bi bi-link"></i> keep in touch with us</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-facebook"></i>Facebook</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-twitter"></i>Twitter</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-instagram"></i>Instagram</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-pinterest"></i>Pinterest</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"><i class="bi bi-youtube"></i>YouTube</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
+            <h5 class="text-uppercase"><i class="bi bi-info-circle"></i> Information</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">help centre</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Exchange and return</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gift card policy</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Payment Methods</a></li>
+            </ul>
+          </div>
+
+
+          <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top fs-3">
+            <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-twitter"></i></a></li>
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-instagram"></i></a></li>
+              <li class="ms-3"><a class="link-body-emphasis" href="#">
+                  <i class="bi bi-facebook"></i></a></li>
+            </ul>
+          </div>
+      </footer>
+    </div>
+  </div>
+  </div>
+  <script type="text/javascript" src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="cdn_modules/jquery@3.7.0/jquery.min.js"></script>
+  <script type="text/javascript" src="cdn_modules/OwlCarousel2@2.3.4/owl.carousel.min.js"></script>
+<script src="./src/js/cart.js"></script>
+  <script src="./src/js/header.js"></script>
+</body>
+
+</html>
