@@ -27,7 +27,7 @@ To run this project locally or on a server, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/your-project.git
+    git clone https://github.com/Chaos-19/Bookstore-web-project-main.git
    ```
 
 2. **Set Up the Database:**
@@ -66,7 +66,7 @@ Contributions to this project are welcome! Feel free to open issues or submit pu
 
 ## License
 
-This project is licensed under the [Your License Name] License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the Chaos-19 License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
 
