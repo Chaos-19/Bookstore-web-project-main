@@ -73,4 +73,3 @@ This project is licensed under the Chaos-19 License - see the [LICENSE.md](LICEN
 I would like to express my gratitude to the instructors and fellow students of the Web Computer Science course for their support and guidance throughout this project.
 
 Thank you for checking out my project!
-```
