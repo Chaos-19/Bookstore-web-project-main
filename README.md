@@ -74,5 +74,3 @@ I would like to express my gratitude to the instructors and fellow students of t
 
 Thank you for checking out my project!
 ```
-
-You can simply copy and paste this entire README.md file into your project repository, and then replace `[Your License Name]` with the actual license name you choose for your project. Make any additional customizations or updates as needed.
