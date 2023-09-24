@@ -18,7 +18,7 @@
 
 <body>
 
- <header>
+<header>
     <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light my-0" aria-label="navbar">
       <div class="container-fluid m-0 p-0 d-flex flex-column">
 
@@ -45,16 +45,15 @@
               </li>
               <li class="nav-item d-lg-none">
                 <a class="nav-link" aria-current="page" href="#">
-                  <i class="bi bi-cart position-relative bagg">
-                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  <i class="bi bi-book-fill bagg">
                   </i>
                 </a>
               </li>
               <li class="nav-item dropdown" id="user_profile">
-                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close"outside">
                   <i class="bi bi-person"></i>
                 </a>
-                <ul class="dropdown-menu p-" aria-labelledby="userProfileDropdown">
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userProfileDropdown">
                   <li><span class="dropdown-header text-center">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -104,7 +103,7 @@
             <button type="button" class="btn-close btn-close-dark fs-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body py-lg-2">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-2 ">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-4">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
               </li>
@@ -112,18 +111,18 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Books
                 </a>
-                <ul class="dropdown-menu fs-3">
-                  <li><a class="dropdown-item" href="#">Bestseller</a></li>
-                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
-                  <li><a class="dropdown-item" href="#">Limited offer</a></li>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./viewable.html?category=fiction">Bestseller</a></li>
+                  <li><a class="dropdown-item" href="./viewable.html?category=Audio Fiction">Top Rated</a></li>
+                  <li><a class="dropdown-item" href="./viewable.html?category=adult">Limited offer</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li class="d-none"><a class="dropdown-item" href="#"></a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Cart</a>
+                <a class="nav-link" href="./cart.html">Cart</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./contact.html">Contact</a>
@@ -181,9 +180,9 @@
             <h5 class="display-6 fw-light text-uppercase mb-4">get spacial offers in your inbox</h5>
             <div class="d-flex flex-column flex-sm-row w-100 gap-3 align-items-center mt-2 px-3">
               <label for="newsletter1" class="visually-hidden">Email address</label>
-              <input id="newsletter1" type="text" class="form-control form-control-lg" placeholder="Email address">
+              <input id="newsletter1" type="email" class="form-control form-control-lg" placeholder="Email address" required>
               <div class="form-group">
-                <button class="btn btn-primary btn-lg py-md-2" type="button">Subscribe</button>
+                <button class="btn btn-primary btn-lg py-md-2" type="submit" id="subscribe">Subscribe</button>
               </div>
             </div>
           </form>
