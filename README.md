@@ -17,7 +17,7 @@ This project serves as a practical demonstration of the skills and knowledge gai
 
 - **Authentication:** Secure user authentication ensures that only authorized users can access certain features or make purchases.
 
-- **Search Functionality:** Users can search for books based on keywords, authors, or genres.
+- **Search Functionality:** Users can search for books based on keywords, book title.
 
 - **Responsive Design:** The web application is designed to be responsive, providing a seamless experience on various devices.
 
