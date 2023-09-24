@@ -53,5 +53,5 @@ if (!empty($name) &&
   ];
   echo json_encode($responseData);
 }
-
+mysqli_close($conn);
 ?>

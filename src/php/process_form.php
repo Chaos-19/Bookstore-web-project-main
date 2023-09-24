@@ -32,5 +32,5 @@ if ($email) {
 }
 
 // Return a response
-
+mysql_close($conn);
 ?>

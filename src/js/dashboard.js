@@ -81,7 +81,7 @@ window.Apex = {
   tooltip: {
     theme: 'dark',
     x: {
-      formatter: function(val) {
+      formatter: function (val) {
         return moment(new Date(val)).format("HH:mm:ss")
       }
     }
@@ -152,7 +152,7 @@ var optionsLine = {
       top: 22
     },
     events: {
-      animationEnd: function(chartCtx, opts) {
+      animationEnd: function (chartCtx, opts) {
         const newData1 = chartCtx.w.config.series[0].data.slice()
         newData1.shift()
         const newData2 = chartCtx.w.config.series[1].data.slice()
@@ -160,7 +160,7 @@ var optionsLine = {
 
         // check animation end event for just 1 series to avoid multiple updates
         if (opts.el.node.getAttribute('index') === '0') {
-          window.setTimeout(function() {
+          window.setTimeout(function () {
             chartCtx.updateOptions({
               series: [{
                 data: newData1
@@ -260,52 +260,103 @@ chartLine.render()
 
 
 
-window.setInterval(function() {
+window.setInterval(function () {
 
   iteration++;
 
   chartLine.updateSeries([{
     data: [...chartLine.w.config.series[0].data,
-      [
-        chartLine.w.globals.maxX + 300000,
-        getRandom()
-      ]
+    [
+      chartLine.w.globals.maxX + 300000,
+      getRandom()
+    ]
     ]
   }, {
     data: [...chartLine.w.config.series[1].data,
-      [
-        chartLine.w.globals.maxX + 300000,
-        getRandom()
-      ]
+    [
+      chartLine.w.globals.maxX + 300000,
+      getRandom()
+    ]
     ]
   }])
 
 
 }, 3000);
-document.addEventListener('DOMContentLoaded', function() {
-    function yourFunctionName() {
-      // Your function's code here 
-      const collapseNav = document.querySelector('#nav-collpsed');
+document.addEventListener('DOMContentLoaded', function () {
+  const table = document.querySelector("table tbody");
 
-      collapseNav.classList.remove('collapse');
-      collapseNav.classList.remove('navbar-collapse');
-      console.log(collapseNav);
-    }
+  fetch("./src/php/authenticat.php")
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.authorized) {
 
-    function expandNavbarOnBreakpoint() {
-      const navbarCollapse = document.getElementById('nav-collpsed');
-      const mediaQuery = window.matchMedia('(min-width: 768px)');
+        fetch("./src/php/get_info.php")
+          .then(res => res.json())
+          .then(data => {
+            data.result.forEach(value => {
+              table.appendChild(getRow(value));
+            })
+          }).catch(error => alert(error))
 
-      function handleMediaQueryChange(e) {
-        if (e.matches) {
-          yourFunctionName()
-        } else {
-          navbarCollapse.classList.remove('show');
+        fetch("./src/php/get_count.php")
+          .then(res => res.json())
+          .then(data => {
+            const result = data.result[0];
+            alert(data)
+            document.querySelector('#user-count').textContent = result.Customer_count;
+            document.querySelector('#book-count').textContent = result.Book_count;
+            document.querySelector('#order-count').textContent = result.Order_count;
+            alert(data)
+
+          }).catch(error => alert(error))
+
+
+
+        function yourFunctionName() {
+          // Your function's code here 
+          const collapseNav = document.querySelector('#nav-collpsed');
+
+          collapseNav.classList.remove('collapse');
+          collapseNav.classList.remove('navbar-collapse');
+          console.log(collapseNav);
         }
+
+        function expandNavbarOnBreakpoint() {
+          const navbarCollapse = document.getElementById('nav-collpsed');
+          const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+          function handleMediaQueryChange(e) {
+            if (e.matches) {
+              yourFunctionName()
+            } else {
+              navbarCollapse.classList.remove('show');
+            }
+          }
+          handleMediaQueryChange(mediaQuery);
+          mediaQuery.addListener(handleMediaQueryChange);
+        }
+        expandNavbarOnBreakpoint();
+      } else {
+        window.location.href = "./Login.html";
       }
-      handleMediaQueryChange(mediaQuery);
-      mediaQuery.addListener(handleMediaQueryChange);
-    }
-    expandNavbarOnBreakpoint();
-  }
-)
+    })
+    .catch((error) => alert(error));
+})
+
+
+
+function getRow({ customer_name, quantity, order_amount, order_date, order_id }) {
+  const row = document.createElement("tr");
+  row.innerHTML += `
+         <td>${order_id}</td>
+        <td>${customer_name}</td>
+        <td>${order_date}</td>
+        <td>${quantity}</td>
+        <td>$${order_amount}</td>
+        <td>
+        <span class="badge bg-success">
+        unpaid</span>
+        </td>
+      `
+  return row;
+}

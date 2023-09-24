@@ -26,10 +26,7 @@ function getBookCard({
   const bookCardCol = document.createElement("div");
   bookCardCol.classList.add("col");
   const bookCard = document.createElement("div");
-  bookCard.classList.add("card");
-  bookCard.classList.add("shadow");
-  bookCard.classList.add("my-4");
-  bookCard.classList.add("book-card");
+  bookCard.className = "card shadow my- book-card";
   bookCard.id = "book-card";
   bookCard.innerHTML += `
    <div class="position-relative">

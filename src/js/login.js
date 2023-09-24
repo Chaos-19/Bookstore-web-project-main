@@ -44,8 +44,8 @@ async function main(url, query) {
   }
 }
 
-if (formElement.checkValidity()) {
-}
+// if (formElement.checkValidity()) {
+// }
 document.querySelectorAll("input").forEach((v, i) => {
   v.addEventListener("invalid", function (e) {
     if (!e.target.checkValidity()) {

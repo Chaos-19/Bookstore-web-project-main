@@ -23,7 +23,7 @@
 
 <body>
 
- <header>
+  <header>
     <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light my-0" aria-label="navbar">
       <div class="container-fluid m-0 p-0 d-flex flex-column">
 
@@ -39,6 +39,12 @@
             <form role="search">
               <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
             </form>
+            <div class="container-fluid position-fixed
+              w-100 h-100 start-0 d-none" style="z-index:1090;background: rgba(253,253,253,0.864);top:21;overflow:scroll;" id="search-resultContainer">
+
+              <ul class="text-center d-flex flex-column gap-2 list-unstyled" id="search-resultbox">
+              </ul>
+            </div>
           </div>
 
           <div class="col-12 col-lg-auto top-nav p-0" id="navbarLinks">
@@ -50,24 +56,23 @@
               </li>
               <li class="nav-item d-lg-none">
                 <a class="nav-link" aria-current="page" href="#">
-                  <i class="bi bi-cart position-relative bagg">
-                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  <i class="bi bi-book-fill bagg">
                   </i>
                 </a>
               </li>
               <li class="nav-item dropdown" id="user_profile">
-                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close"outside">
                   <i class="bi bi-person"></i>
                 </a>
-                <ul class="dropdown-menu p-" aria-labelledby="userProfileDropdown">
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userProfileDropdown">
                   <li><span class="dropdown-header text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                      </svg>
-                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                  </span>
                   </li>
-                     <li class="dropdown-item">User Id :<span id="user-id"></span></li>
+                  <li class="dropdown-item">User Id :<span id="user-id"></span></li>
                   <li class="dropdown-item">User: <span id="user-name"> john@example.com</span></li>
                   <li class="dropdown-item">Email: <span id="user-email"> john@example.com</span>
                   </li>
@@ -109,7 +114,7 @@
             <button type="button" class="btn-close btn-close-dark fs-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body py-lg-2">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-2 ">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-4">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
               </li>
@@ -117,18 +122,18 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Books
                 </a>
-                <ul class="dropdown-menu fs-3">
-                  <li><a class="dropdown-item" href="#">Bestseller</a></li>
-                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
-                  <li><a class="dropdown-item" href="#">Limited offer</a></li>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./viewable.html?category=fiction">Bestseller</a></li>
+                  <li><a class="dropdown-item" href="./viewable.html?category=Audio Fiction">Top Rated</a></li>
+                  <li><a class="dropdown-item" href="./viewable.html?category=adult">Limited offer</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li class="d-none"><a class="dropdown-item" href="#"></a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Cart</a>
+                <a class="nav-link" href="./cart.html">Cart</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./contact.html">Contact</a>
@@ -137,10 +142,8 @@
                 <a class="nav-link" href="./about.html">About Us</a>
               </li>
             </ul>
-
           </div>
         </div>
-
       </div>
     </nav>
   </header>
@@ -164,37 +167,39 @@
     </div>
 
     <div class="container" id="">
-      <div class="row justify-content-center ">
+      <div class="row justify-content-center mt-2">
         <div class="col-12 col-md-4">
           <div class="image-container">
-            <img src="./src/Image/detail.jpg" class="img-fulid d-block w-100">
+<!--  <img src="./src/Image/detail.jpg" class="img-fulid d-block w-100"> -->
           </div>
         </div>
         <div class="col-12 col-md-8">
-          <h2 class="text-capitalize display-6 fw-semibold" id="book-title">here ditary</h2>
-          <p class="text-capitalize fs-5 text-body-emphasis">author : <span class="author">Christian Dior</span></p>
+          <h2 class="text-capitalize display-6 fw-semibold" id="book-title"></h2>
+          <p class="text-capitalize fs-5 text-body-emphasis">
+            author: <span class="author">Christian Dior</span>
+          </p>
           <a href="" class="text-decoration-none">Add Your Review</a>
-          <h3 class="">$<span class="price display-4">900</span> <small class="discount"><del>$900</del></small></h3>
-          <p class="text-capitalize"><span class="fs-4">category: </span><span class="category">Biographies & Memoirs, Book Shop, Literature & Fiction ... </span></p>
-
+          <h3 class="">$<span class="price display-4">900</span><small class="discount"><del>$900</del></small></h3>
+          <p class="text-capitalize">
+            <span class="fs-4">category: </span><span class="category"></span>
+          </p>
           <p id="bookdescription" class="lead fs-5">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat
           </p>
           <div class="cart-adder d-flex flex-column gap-2 flex-md-row">
-            <div id="cart-item-count" class="w-50 d-flex gap-2 m-0 py-2" style="flex: ">
+            <div id="cart-item-count" class="w-50 d-flex gap-2 m-0 py-2 m-md-1" style="">
               <button type="button" id="minus" class="btn btn-outline-primary btn-lg rounded-circle"><i class="bi bi-dash"></i></button>
               <input id="cart-count" style="width: 30%;flex:0.8" type="number" class="form-control rounded-pill text-center fs-1" name="noitem" value="1">
               <button type="button" id="plus" class="btn btn-outline-primary btn-lg rounded-circle"><i class="bi bi-plus-lg fw-semibold"></i></button>
             </div>
-            <button id="add-to-cart" type="button" class="btn btn-primary btn-lg fs-5 text-uppercase py-2 py-md-none" style="flex: 1">add to cart</button>
+          <button id="add-to-cart" type="button" class="btn btn-primary py-3 rounded-pill flex-grow-1 my-md-3">add to cart</button>
           </div>
           <div class="d-grid my-3">
-            <button class="btn btn-outline-primary text-uppercase btn-lg fmy-3 md-rounded-pill py-2">buy it now</button>
+            <button class="btn btn-outline-primary text-uppercase btn-lg  rounded-pill py-2">buy it now</button>
           </div>
           <hr>
           <div class="col-11">
             <p class="d-flex gap-3">
-              <a href="#share" class="text-decoration-none fs-3" aria-expanded="false" data-bs-toggle="collapse" aria-controls="example"><i class="bi bi-share fs-3"></i> Share</a>
+              <a href="#share" class="text-decoration-none fs-3" aria-expanded="false" data-bs-toggle="collapse"><i class="bi bi-share fs-3"></i> Share</a>
               <a href="#favforite" class="text-decoration-none fs-3" aria-expanded="false" data-bs-toggle="collapse" aria-controls="example"><i class="bi bi-heart fs-3"></i> Wishlist</a>
 
               <a href="#compare" class="text-decoration-none fs-3" aria-expanded="false" data-bs-toggle="collapse" aria-controls="example"><i class="bi bi-arrow-left-right fs-3"></i> compare</a>
@@ -202,8 +207,8 @@
 
             <div class="collapse" id="share">
               <div class="collapse-content d-flex gap-3">
-                <a href="" class="btn btn-outline-primary">
-                  <i class="bi bi-facebook fs-3"> Facebook</i></a>
+                <button id="share" class="btn btn-outline-primary">
+                  <i class="bi bi-facebook fs-3"> Facebook</i></button>
                 <a href="" class="btn btn-outline-primary">
                   <i class="bi bi-twitter fs-3"> Twitter</i></a>
                 <a href="" class="btn btn-outline-danger">
@@ -240,7 +245,7 @@
                 </tr>
                 <tr>
                   <th scope="row">date published</th>
-                  <td class="title text-capitalize">published on August 26 ,2023</td>
+                  <td class="title text-capitalize" id="publication">published on August 26 ,2023</td>
                 </tr>
               </tbody>
             </table>
@@ -258,16 +263,6 @@
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="tab-description" role="tabpanel" aria-labelledby="tab-description-tab">
               <div class="description">
-                <p class="">The story takes place in Indiana, in and around the Limberlost Swamp - at that time, a site of heavy logging and natural oil extraction.</p>
-                <p>
-                  This Bildungsroman is structured as girl-meets-boy, girl-loses-boy, girl-undertakes-an-adventure-to-win-boy-back.
-                </p>
-
-                <p>
-                  The novel's heroine, Elnora Comstock, is an impoverished young woman who lives with her widowed mother, Katharine Comstock, on the edge of the Limberlost. Elnora faces cold neglect by her mother, a woman who feels ruined by the death of her husband, Robert Comstock, who drowned in quicksand in the swamp. Katharine blames Elnora for his death, because her husband died while she gave birth to their daughter and could not come to his rescue.
-                </p>
-                <p>
-                  The Comstocks make money by selling eggs and other farm products, but Mrs. Comstock refuses to cut down a single tree in the forest, or to delve for oil, as the neighbors around them are doing, even though the added income would make their lives easier.</p>
               </div>
             </div>
             <div class="tab-pane fade" id="tab-reviews" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -314,24 +309,25 @@
             <h5 class="display-6 fw-light text-uppercase mb-4">get spacial offers in your inbox</h5>
             <div class="d-flex flex-column flex-sm-row w-100 gap-3 align-items-center mt-2 px-3">
               <label for="newsletter1" class="visually-hidden">Email address</label>
-              <input id="newsletter1" type="text" class="form-control form-control-lg" placeholder="Email address">
+              <input id="newsletter1" type="email" class="form-control form-control-lg" placeholder="Email address" required>
               <div class="form-group">
-                <button class="btn btn-primary btn-lg py-md-2" type="button">Subscribe</button>
+                <button class="btn btn-primary btn-lg py-md-2" type="submit" id="subscribe">Subscribe</button>
               </div>
             </div>
           </form>
         </div>
-
-
-
       </div>
 
       <footer class="py-5">
         <div class="row">
           <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
             <img src="./src/Image/logo_332x.png" class="d-block" style="width:50%" alt="">
-            <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p class="text-white fs-4">learn more about us</p>
+            <p class="my-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p class="text-white fs-4">
+              learn more about us
+            </p>
           </div>
 
           <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
@@ -367,19 +363,21 @@
 
 
           <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top fs-3">
-            <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+            <p>
+              &copy; 2023 Company, Inc. All rights reserved.
+            </p>
             <ul class="list-unstyled d-flex">
               <li class="ms-3"><a class="link-body-emphasis" href="#">
-                  <i class="bi bi-twitter"></i></a></li>
+                <i class="bi bi-twitter"></i></a></li>
               <li class="ms-3"><a class="link-body-emphasis" href="#">
-                  <i class="bi bi-instagram"></i></a></li>
+                <i class="bi bi-instagram"></i></a></li>
               <li class="ms-3"><a class="link-body-emphasis" href="#">
-                  <i class="bi bi-facebook"></i></a></li>
+                <i class="bi bi-facebook"></i></a></li>
             </ul>
           </div>
-      </footer>
+        </footer>
+      </div>
     </div>
-  </div>
   </div>
 
   <script type="text/javascript" src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"></script>

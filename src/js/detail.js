@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       const book = data.result[0];
       document.querySelector(".image-container").innerHTML = book.book_image;
+
       document.querySelector("#book-title").textContent = book.book_title;
       document.querySelector(".author").textContent = book.book_author;
       document.querySelector("#bookdescription").textContent =
@@ -74,11 +75,41 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch((error) => alert(error));
         });
       // end;
+      fetch(`https://openlibrary.org/isbn/${book.ISBN}.json`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          const workId = data.works[0].key;
+          document.querySelector('#publication').textContent = data.publish_date;
+          return fetch(`http://openlibrary.org${workId}.json`);
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(secondData => {
+
+          document.querySelector(".description").innerHTML =
+            secondData.description ? typeof secondData.description === 'object' ? secondData.description.value : secondData.description : "No Description !!";
+        })
+        .catch(error => {
+          alert('An error occurred:' + error);
+          document.querySelector(".description").innerHTML = "You Are offline "
+        });
+      //share
+
     })
     .catch((error) => {
       alert("An error occurred:", error);
     });
 });
+
 
 $(document).ready(function () {
   $("#minus").click(function () {
@@ -105,10 +136,7 @@ function getBookCard({
   book_price,
 }) {
   const bookCard = document.createElement("div");
-  bookCard.classList.add("card");
-  bookCard.classList.add("shadow");
-  bookCard.classList.add("my-4");
-  bookCard.classList.add("book-card");
+  bookCard.className = "card shadow my-4 book-card";
   bookCard.id = "book-card";
 
   bookCard.innerHTML += `
@@ -179,3 +207,36 @@ const getQuery = (obj) => {
 
   return query.join("&");
 };
+
+
+const shareButton = document.getElementById("share");
+
+shareButton.addEventListener("click", () => {
+
+  const base64Image = document.querySelector(".image-container").querySelector("img").src;
+
+  const file = new File([base64Image], "image.jpg", { type: "image/jpeg", });
+
+  if (navigator.share) {
+    const base64Image = document.querySelector(".image-container").querySelector("img").src;
+    const file = new File([base64Image], "image.jpg", {
+      type: "image/jpg",
+    });
+
+    navigator.share({
+      title: document.querySelector("#book-title").textContent,
+      text: "Check out this book!",
+      url: window.location.href,
+      files: [file],
+    })
+      .then(() => {
+        console.log("Share successful");
+      })
+      .catch((error) => {
+        console.error("Error sharing:", error);
+      });
+  } else {
+    console.log("Web Share API not supported");
+
+  }
+});

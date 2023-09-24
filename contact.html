@@ -16,7 +16,7 @@
 
 <body>
 
- <header>
+  <header>
     <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light my-0" aria-label="navbar">
       <div class="container-fluid m-0 p-0 d-flex flex-column">
 
@@ -32,6 +32,12 @@
             <form role="search">
               <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
             </form>
+            <div class="container-fluid position-fixed
+              w-100 h-100 start-0 d-none" style="z-index:1090;background: rgba(253,253,253,0.864);top:21;overflow:scroll;" id="search-resultContainer">
+
+              <ul class="text-center d-flex flex-column gap-2 list-unstyled" id="search-resultbox">
+              </ul>
+            </div>
           </div>
 
           <div class="col-12 col-lg-auto top-nav p-0" id="navbarLinks">
@@ -43,24 +49,23 @@
               </li>
               <li class="nav-item d-lg-none">
                 <a class="nav-link" aria-current="page" href="#">
-                  <i class="bi bi-cart position-relative bagg">
-                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  <i class="bi bi-book-fill bagg">
                   </i>
                 </a>
               </li>
               <li class="nav-item dropdown" id="user_profile">
-                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close"outside">
                   <i class="bi bi-person"></i>
                 </a>
-                <ul class="dropdown-menu p-" aria-labelledby="userProfileDropdown">
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userProfileDropdown">
                   <li><span class="dropdown-header text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                      </svg>
-                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                  </span>
                   </li>
-                     <li class="dropdown-item">User Id :<span id="user-id"></span></li>
+                  <li class="dropdown-item">User Id :<span id="user-id"></span></li>
                   <li class="dropdown-item">User: <span id="user-name"> john@example.com</span></li>
                   <li class="dropdown-item">Email: <span id="user-email"> john@example.com</span>
                   </li>
@@ -102,7 +107,7 @@
             <button type="button" class="btn-close btn-close-dark fs-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body py-lg-2">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-2 ">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-4">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
               </li>
@@ -110,18 +115,18 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Books
                 </a>
-                <ul class="dropdown-menu fs-3">
-                  <li><a class="dropdown-item" href="#">Bestseller</a></li>
-                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
-                  <li><a class="dropdown-item" href="#">Limited offer</a></li>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./viewable.html?category=fiction">Bestseller</a></li>
+                  <li><a class="dropdown-item" href="./viewable.html?category=Audio Fiction">Top Rated</a></li>
+                  <li><a class="dropdown-item" href="./viewable.html?category=adult">Limited offer</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li class="d-none"><a class="dropdown-item" href="#"></a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Cart</a>
+                <a class="nav-link" href="./cart.html">Cart</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./contact.html">Contact</a>
@@ -160,35 +165,34 @@
       <div class="col text-center mt-5">
         <h1 class="text-uppercase display-2 fw-light">we're happy to hear</h1>
       </div>
-      <form class="p-4 pb-5 p-md-5 text-center">
+      <form class="p-4 pb-5 p-md-5 text-center" id="contact">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="name">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="name" required>
           <label for="floatingInput">Name</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingTitle" placeholder="Title" name="title">
-          <label for="floatingPassword">Title</label>
+          <input type="text" class="form-control" id="floatingTitle" placeholder="Title" name="title" required>
+          <label for="floatingTitle">Title</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingphonno" placeholder="phone number" name="phone">
+          <input  type="text" class="form-control" id="floatingphonno" placeholder="phone number" name="phone" required>
           <label for="floatingPassword">Phone number</label>
         </div>
         <div class="form-floating mb-3">
-          <textarea class="form-control" name="message" id="" cols="45" rows="10" id="floatingTextarea"></textarea>
+          <textarea class="form-control" name="message" id="" cols="45" rows="10" id="floatingTextarea" required></textarea>
           <label for="floatingTextarea">message</label>
         </div>
         <button class="w-40 btn btn-lg btn-primary" type="submit"> send</button>
-
       </form>
     </div>
   </main>
 
   <!-- section footer -->
-   <div class="container-fluid bg-primary bg-gardient">
+  <div class="container-fluid bg-primary bg-gardient">
     <div class="container position-relative">
 
       <div class="row subscription position-abolute">
@@ -198,9 +202,9 @@
             <h5 class="display-6 fw-light text-uppercase mb-4">get spacial offers in your inbox</h5>
             <div class="d-flex flex-column flex-sm-row w-100 gap-3 align-items-center mt-2 px-3">
               <label for="newsletter1" class="visually-hidden">Email address</label>
-              <input id="newsletter1" type="text" class="form-control form-control-lg" placeholder="Email address">
+              <input id="newsletter1" type="email" class="form-control form-control-lg" placeholder="Email address" required>
               <div class="form-group">
-                <button class="btn btn-primary btn-lg py-md-2" type="button">Subscribe</button>
+                <button class="btn btn-primary btn-lg py-md-2" type="submit" id="subscribe">Subscribe</button>
               </div>
             </div>
           </form>
@@ -214,8 +218,12 @@
         <div class="row">
           <div class="col-12 col-md-6 col-lg-3 mb-3 fs-4">
             <img src="./src/Image/logo_332x.png" class="d-block" style="width:50%" alt="">
-            <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p class="text-white fs-4">learn more about us</p>
+            <p class="my-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p class="text-white fs-4">
+              learn more about us
+            </p>
           </div>
 
           <div class="col-12 col-md-6 col-lg-3 mb-3 fs-4">
@@ -251,23 +259,28 @@
 
 
           <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top fs-3">
-            <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+            <p>
+              &copy; 2023 Company, Inc. All rights reserved.
+            </p>
             <ul class="list-unstyled d-flex">
               <li class="ms-3"><a class="link-body-emphasis" href="#">
-             <i class="bi bi-twitter"></i></a></li>
+                <i class="bi bi-twitter"></i></a></li>
               <li class="ms-3"><a class="link-body-emphasis" href="#">
-               <i class="bi bi-instagram"></i></a></li>
+                <i class="bi bi-instagram"></i></a></li>
               <li class="ms-3"><a class="link-body-emphasis" href="#">
-               <i class="bi bi-facebook"></i></a></li>
+                <i class="bi bi-facebook"></i></a></li>
             </ul>
           </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   </div>
-</div>
 
   <script type="text/javascript" src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="./src/js/header.js"></script>
+     <script src="cdn_modules/jquery@3.7.0/jquery.slim.min.js"></script>
+  <script src="./src/js/header.js"></script>
+  <script src="./src/js/contact.js"></script>
+  
 </body>
 
 </html>

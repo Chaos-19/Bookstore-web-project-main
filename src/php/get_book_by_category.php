@@ -33,13 +33,6 @@ if (mysqli_num_rows($result) > 0) {
   ));
 }
 
-$conn->close();
+mysqli_close($conn);
 
-
-/*
-      $erro_response = array(
-      "status" => "error",
-      "message" => "Invalid input. Please provide a valid book ID.",
-      "data" => null);
-*/
 ?>

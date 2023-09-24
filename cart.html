@@ -21,7 +21,7 @@
 
 <body>
 
- <header>
+  <header>
     <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light my-0" aria-label="navbar">
       <div class="container-fluid m-0 p-0 d-flex flex-column">
 
@@ -37,6 +37,12 @@
             <form role="search">
               <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
             </form>
+            <div class="container-fluid position-fixed
+              w-100 h-100 start-0 d-none" style="z-index:1090;background: rgba(253,253,253,0.864);top:21;overflow:scroll;" id="search-resultContainer">
+
+              <ul class="text-center d-flex flex-column gap-2 list-unstyled" id="search-resultbox">
+              </ul>
+            </div>
           </div>
 
           <div class="col-12 col-lg-auto top-nav p-0" id="navbarLinks">
@@ -48,16 +54,15 @@
               </li>
               <li class="nav-item d-lg-none">
                 <a class="nav-link" aria-current="page" href="#">
-                  <i class="bi bi-cart position-relative bagg">
-                    <h3 class="position-absolute badge-top"><span class="badge rounded-pill bg-warning">0</span></h3>
+                  <i class="bi bi-book-fill bagg">
                   </i>
                 </a>
               </li>
               <li class="nav-item dropdown" id="user_profile">
-                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close"outside">
                   <i class="bi bi-person"></i>
                 </a>
-                <ul class="dropdown-menu p-" aria-labelledby="userProfileDropdown">
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userProfileDropdown">
                   <li><span class="dropdown-header text-center">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -65,9 +70,9 @@
                       </svg>
                     </span>
                   </li>
-                     <li class="dropdown-item">User Id :<span id="user-id"></span></li>
-                  <li class="dropdown-item">User: <span id="user-name"> john@example.com</span></li>
-                  <li class="dropdown-item">Email: <span id="user-email"> john@example.com</span>
+                  <li class="dropdown-item">User Id :<span id="user-id"></span></li>
+                  <li class="dropdown-item">User: <span id="user-name"></span></li>
+                  <li class="dropdown-item">Email: <span id="user-email"></span>
                   </li>
                   <li>
                     <hr class="dropdown-divider">
@@ -107,7 +112,7 @@
             <button type="button" class="btn-close btn-close-dark fs-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body py-lg-2">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-2 ">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-4">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
               </li>
@@ -115,18 +120,18 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Books
                 </a>
-                <ul class="dropdown-menu fs-3">
-                  <li><a class="dropdown-item" href="#">Bestseller</a></li>
-                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
-                  <li><a class="dropdown-item" href="#">Limited offer</a></li>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./viewable.html?category=fiction">Bestseller</a></li>
+                  <li><a class="dropdown-item" href="./viewable.html?category=Audio Fiction">Top Rated</a></li>
+                  <li><a class="dropdown-item" href="./viewable.html?category=adult">Limited offer</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li class="d-none"><a class="dropdown-item" href="#"></a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Cart</a>
+                <a class="nav-link" href="./cart.html">Cart</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./contact.html">Contact</a>
@@ -161,11 +166,13 @@
     </div>
 
     <div class="separator p-4"></div>
-   
-     <div class="d-none text-center" id="emptycart">
-       <p>Your Shopping <i class="bi-cart-fill"></i> is empty </p>
-       <a href="./index.html" class="link text-decoration-none">continue shopping</a>
-     </div>  
+
+    <div class="d-none text-center" id="emptycart">
+      <p>
+        Your Shopping <i class="bi-cart-fill"></i> is empty
+      </p>
+      <a href="./index.html" class="link text-decoration-none">continue shopping</a>
+    </div>
 
     <div class="container" id="container">
       <div class="row gy-4">
@@ -180,39 +187,39 @@
               </tr>
             </thead>
             <tbody class="p-0">
-             <!--  <tr>
-                <td class="p-0 border border-warning">
-                  <div class="container  py-3">
-                    <div class="row m-0 align-items-md-center p-0">
-                      <div class="col-4 p-0">
-                        <img id="bookimg" src="./src/Image/1_380x.jpeg" class="d-block w-100" alt="">
-                      </div>
-                      <div class="col-6 text-start content flex-">
-                        <span class="d-block title">here ditary</span>
-                        <span class="d-block author">Charlie's ditary</span>
-                        <span class="d-block color">red</span>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-1">
-                  $900
-                </td>
-                <td class="px-1">
-
-                  <div class="col d-inline-flex border m-0">
-                    <button type="button" class="btn btn-outline-secondary"><i class="bi bi-chevron-up"></i></button>
-                    <input disabled type="number" name="quantity" id="quantity" value="50" class="form-control form-control-lg flex-grow-0 text-center" />
-                    <button type="button" class="btn btn-outline-secondary"><i class="bi bi-chevron-down"></i></button>
-                  </div>
-                </td>
-                <td class="px-2 position-relative text-center">
-                  $10000
-          <div class="position-absolute bottom-0 d-flex align-items-center gap-2">
-              <button  class="btn-close btn-sm" type="button"></button><span class="text-sm">remove</span>
+              <!--       <tr>
+          <td class="p-0 border border-warning">
+            <div class="container  py-3">
+              <div class="row m-0 align-items-md-center p-0">
+                <div class="col-4 p-0">
+                  <img id="bookimg" src="./src/Image/1_380x.jpeg" class="d-block w-100" alt="">
                 </div>
-                </td>
-              </tr> -->
+                <div class="col-6 text-start content flex-">
+                  <span class="d-block title">here ditary</span>
+                  <span class="d-block author">Charlie's ditary</span>
+                  <span class="d-block color">red</span>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="px-1">
+            $900
+          </td>
+          <td class="px-1">
+        
+            <div class="col d-inline-flex border m-0">
+              <button type="button" class="btn btn-outline-secondary"><i class="bi bi-chevron-up"></i></button>
+              <input disabled type="number" name="quantity" id="quantity" value="50" class="form-control form-control-lg flex-grow-0 text-center" />
+              <button type="button" class="btn btn-outline-secondary"><i class="bi bi-chevron-down"></i></button>
+            </div>
+          </td>
+          <td class="px-2 position-relative text-center">
+            $10000
+            <div class="position-absolute bottom-0 d-flex align-items-center gap-2">
+              <button class="btn-close btn-sm" type="button"></button><span class="text-sm">remove</span>
+            </div>
+          </td>
+        </tr> -->
             </tbody>
           </table>
         </div>
@@ -220,13 +227,17 @@
           <div class="container p-2">
             <div class="row">
               <div class="col d-flex justify-content-between fs-2">
-                <p>Total</p>
-                <p id="totalprice">$1,6780.8</p>
+                <p>
+                  Total
+                </p>
+                <p>
+                  $<span id="Total"></span>
+                </p>
               </div>
             </div>
             <div class="row row-cols-1 p-0 gy-3" id="cart-card">
               <!-- cart-description -->
-            <!--   <div class="col  border shadow-sm" id="cart-description">
+              <!--<div class="col  border shadow-sm" id="cart-description">
                 <div class="row m-0 p-0 align-items-center">
                   <div class="col-3 p-0">
                     <img id="bookimg" src="./src/Image/1_380x.jpeg" class="d-block w-100" alt="">
@@ -242,12 +253,10 @@
                     <span class="d-block mt-2 fs-3" id="totalprice">$1,6780.8</span>
                   </div>
                   <div class="col-2 ms-auto">
-                    <button  class="btn-close" type="button"></button>
+                    <button class="btn-close" type="button"></button>
                   </div>
                 </div>
-              </div> -->
-
-              <!-- end -->
+              </div> end -->
             </div>
           </div>
         </div>
@@ -320,8 +329,6 @@
       </div>
     </div>
 
-
-
     <div class="separator py-3"></div>
 
   </main>
@@ -338,24 +345,25 @@
             <h5 class="display-6 fw-light text-uppercase mb-4">get spacial offers in your inbox</h5>
             <div class="d-flex flex-column flex-sm-row w-100 gap-3 align-items-center mt-2 px-3">
               <label for="newsletter1" class="visually-hidden">Email address</label>
-              <input id="newsletter1" type="text" class="form-control form-control-lg" placeholder="Email address">
+              <input id="newsletter1" type="email" class="form-control form-control-lg" placeholder="Email address">
               <div class="form-group">
-                <button class="btn btn-primary btn-lg py-md-2" type="button">Subscribe</button>
+                <button class="btn btn-primary btn-lg py-md-2" type="submit" id="subscribe">Subscribe</button>
               </div>
             </div>
           </form>
         </div>
-
-
-
       </div>
 
       <footer class="py-5">
         <div class="row">
           <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
             <img src="./src/Image/logo_332x.png" class="d-block" style="width:50%" alt="">
-            <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p class="text-white fs-4">learn more about us</p>
+            <p class="my-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p class="text-white fs-4">
+              learn more about us
+            </p>
           </div>
 
           <div class="col-12 col-md-6 col-lg-3 mb-3 fs-5">
@@ -391,7 +399,9 @@
 
 
           <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top fs-3">
-            <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+            <p>
+              &copy; 2023 Company, Inc. All rights reserved.
+            </p>
             <ul class="list-unstyled d-flex">
               <li class="ms-3"><a class="link-body-emphasis" href="#">
                   <i class="bi bi-twitter"></i></a></li>
@@ -408,7 +418,7 @@
   <script type="text/javascript" src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="cdn_modules/jquery@3.7.0/jquery.min.js"></script>
   <script type="text/javascript" src="cdn_modules/OwlCarousel2@2.3.4/owl.carousel.min.js"></script>
-<script src="./src/js/cart.js"></script>
+  <script src="./src/js/cart.js"></script>
   <script src="./src/js/header.js"></script>
 </body>
 

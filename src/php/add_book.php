@@ -23,8 +23,6 @@
 
 
 
-
-
       $endpoint = 'https://api.nytimes.com/svc/books/v3/lists/full-overview.json';
       $apiKey = '3clpt79cpr6iJlCre7vhCA9utTiN0uA4';
       $url = "{$endpoint}?api-key={$apiKey}";

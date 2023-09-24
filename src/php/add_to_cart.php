@@ -94,6 +94,5 @@ try {
     "message" => "product not committed file to insert data",
     "Error message" => $e->getMessage()]);
 }
-
-
+mysqli_close($conn)
 ?>

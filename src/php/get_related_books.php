@@ -37,13 +37,5 @@ try {
     ["status" => "error",
       "message" => $e->getMessage()]);
 }
-$conn->close();
-
-
-/*
-$erro_response = array(
-"status" => "error",
-"message" => "Invalid input. Please provide a valid book ID.",
-"data" => null);
-*/
+mysqli_close($conn);
 ?>

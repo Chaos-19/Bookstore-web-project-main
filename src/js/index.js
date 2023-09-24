@@ -175,10 +175,7 @@ function getBookCard({
   book_price,
 }) {
   const bookCard = document.createElement("div");
-  bookCard.classList.add("card");
-  bookCard.classList.add("shadow");
-  bookCard.classList.add("my-4");
-  bookCard.classList.add("book-card");
+  bookCard.className = "card shadow my-4 book-card";
   bookCard.id = "book-card";
 
   bookCard.innerHTML += `
@@ -245,3 +242,4 @@ ${book_image}
   });
   return bookCard;
 }
+

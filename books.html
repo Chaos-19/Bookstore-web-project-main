@@ -172,6 +172,144 @@
     <div class="separator py-5"></div>
 
     <main>
+      <!-- modal -->
+      <div
+        class="modal"
+        id="updateBookModal"
+        tabindex="-1"
+        aria-labelledby="updateBookModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-4" id="updateBookModalLabel">
+                Add New Book
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body d-md-flex align-items-center">
+              <div class="container">
+                <div class="row p-0">
+                  <div class="col">
+                    <form
+                      class="my-3 px-3"
+                      method="post"
+                      enctype="multipart/form-data"
+                      id="updateBook"
+                    >
+                      <div class="form-group">
+                        <label for="bookname" class="form-label fs-4"
+                          >Book Name :</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control form-control-lg"
+                          name="bookname"
+                          required
+                        />
+                      </div>
+                      <div class="form-group mt-3">
+                        <label for="category" class="form-label fs-4"
+                          >Book Category</label
+                        >
+                        <input
+                          required
+                          class="form-control form-control-lg"
+                          id="category"
+                          name="bookcategory"
+                        />
+                      </div>
+                      <div class="form-group mt-3">
+                        <label for="bookAuthor" class="form-label fs-4"
+                          >Book Author</label
+                        >
+                        <input
+                          required
+                          type="text"
+                          class="form-control form-control-lg"
+                          name="bookAuthor"
+                        />
+                      </div>
+                      <div class="form-group mt-3">
+                        <label for="bookAuthor" class="form-label fs-4"
+                          >Book ISBN</label
+                        >
+                        <input
+                          required
+                          type="text"
+                          class="form-control form-control-lg"
+                          name="bookIsbn"
+                        />
+                      </div>
+                      <div class="form-group mt-4">
+                        <label for="bookimage" class="form-label fs-4"
+                          >Book Image:</label
+                        >
+                        <input
+                          type="file"
+                          class="form-control form-control-lg"
+                          name="bookimage"
+                        />
+                      </div>
+                      <div class="form-group mt-3">
+                        <label for="bookprice" class="form-label fs-4"
+                          >Book Price:</label
+                        >
+                        <input
+                          required
+                          type="number"
+                          class="form-control form-control-lg"
+                          name="bookprice"
+                        />
+                      </div>
+                      <div class="form-group mt-3">
+                        <label for="bookdescription" class="form-label fs-4"
+                          >Book Description :</label
+                        >
+                        <textarea
+                          name="bookdescription"
+                          id="bookdescription"
+                          rows="5"
+                          class="w-100 border border-warning rounded-2 ps-3 pt-2 fs-2"
+                        ></textarea>
+                      </div>
+                      <div class="form-group my-3 d-flex gap-2">
+                        <input
+                          type="submit"
+                          name="submit"
+                          id="submit"
+                          value="Update"
+                          class="btn btn-outline-primary btn-lg"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-outline-primary d-md-none">
+                UpdateBook
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- modal -->
       <div class="container-fluid px-3">
         <div class="row">
           <div class="col border shadow rounded py-3 px-0">
@@ -179,142 +317,15 @@
               class="top d-flex justify-content-between align-items-center border-bottom py-4 px-3"
             >
               <h5>Book List</h5>
-              <button
-                class="btn btn-primary d-inline-flex align-items-center"
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModalFullscreen"
-              >
-                Add New Book
-              </button>
-
-              <div
-                class="modal fade"
-                id="exampleModalFullscreen"
-                tabindex="-1"
-                aria-labelledby="exampleModalFullscreenLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-fullscreen">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1
-                        class="modal-title fs-4"
-                        id="exampleModalFullscreenLabel"
-                      >
-                        Add New Book
-                      </h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body d-md-flex align-items-center">
-                      <div class="container">
-                        <div class="row p-0">
-                          <div class="col">
-                            <form action="" class="my-3">
-                              <div class="form-group">
-                                <label for="bookname" class="form-label fs-4"
-                                  >Book Name :</label
-                                >
-                                <input
-                                  type="text"
-                                  class="form-control form-control-lg"
-                                  name="bookname"
-                                />
-                              </div>
-                              <div class="form-group mt-3">
-                                <label for="category" class="form-label fs-4"
-                                  >Book Category</label
-                                >
-                                <select
-                                  class="form-select form-control-lg"
-                                  id="category"
-                                  name="bookcategory"
-                                >
-                                  <option>Book Category</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                              </div>
-                              <div class="form-group mt-3">
-                                <label for="bookAuthor" class="form-label fs-4"
-                                  >Book Author</label
-                                >
-                                <input
-                                  type="text"
-                                  class="form-control form-control-lg"
-                                  name="bookAuthor"
-                                />
-                              </div>
-                              <div class="form-group mt-4">
-                                <label for="bookimage" class="form-label fs-4"
-                                  >Book Image:</label
-                                >
-                                <input
-                                  type="file"
-                                  class="form-control form-control-lg"
-                                  name="bookimage"
-                                />
-                              </div>
-                              <div class="form-group mt-3">
-                                <label for="bookprice" class="form-label fs-4"
-                                  >Book Price:</label
-                                >
-                                <input
-                                  type="number"
-                                  class="form-control form-control-lg"
-                                  name="bookprice"
-                                />
-                              </div>
-
-                              <div class="form-group mt-3">
-                                <label
-                                  for="bookdescription"
-                                  class="form-label fs-4"
-                                  >Book Description :</label
-                                >
-                                <textarea
-                                  name="bookdescription"
-                                  id="bookdescription"
-                                  rows="7"
-                                  class="w-100 border border-warning rounded-2 ps-2"
-                                ></textarea>
-                              </div>
-                              <div class="form-group my-3">
-                                <input
-                                  type="submit"
-                                  name="submit"
-                                  id="submit"
-                                  value="Add book"
-                                  class="btn btn-outline-primary btn-lg d-none d-md-block"
-                                />
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-outline-primary d-md-none">
-                        Add Book
-                      </button>
-
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <a href="./addBook.html" class="text-decoration-none">
+                <button
+                  class="btn btn-primary d-inline-flex align-items-center"
+                  type="button"
+                  id="addBookBtn"
+                >
+                  Add New Book
+                </button>
+              </a>
             </div>
             <div class="sub my-3 px-3 py-4">
               <div
@@ -342,14 +353,19 @@
                 <div class="px-md-0">
                   <form class="d-flex mt-3" role="search">
                     <input
+                      id="searchquery"
                       class="form-control me-2"
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
                     />
-                    <button class="btn btn-outline-success" type="submit">
+                <!--     <button
+                      id="searchbtn"
+                      class="btn btn-outline-success"
+                      type="submit"
+                    >
                       Search
-                    </button>
+                    </button> -->
                   </form>
                 </div>
               </div>
@@ -426,7 +442,7 @@
                     <th scope="col" class="col-4">
                       <div class="head">
                         Action
-                        <span class="order d-flex">
+                        <span class="orderd-flex">
                           <i class="bi bi-arrow-up"></i>
                           <i class="bi bi-arrow-down"></i>
                         </span>
@@ -434,7 +450,6 @@
                     </th>
                   </tr>
                 </thead>
-
                 <tbody></tbody>
               </table>
             </div>
@@ -483,23 +498,10 @@
       </footer>
     </div>
 
-    <script
-      type="text/javascript"
-      src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="cdn_modules/moment.js@2.29.4/moment.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="cdn_modules/jquery@3.7.0/jquery.slim.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="cdn_modules/apexcharts@3.41.1/apexcharts.min.js"
-    ></script>
-
+    <script src="cdn_modules/bootstrap@5.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="cdn_modules/moment.js@2.29.4/moment.min.js"></script>
+    <script src="cdn_modules/jquery@3.7.0/jquery.slim.min.js"></script>
+    <script src="cdn_modules/apexcharts@3.41.1/apexcharts.min.js"></script>
     <script src="./src/js/bookcategory.js"></script>
     <script src="./src/js/book.js"></script>
   </body>

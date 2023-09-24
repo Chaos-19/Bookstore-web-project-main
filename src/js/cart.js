@@ -18,11 +18,10 @@ function updateCard() {
     .then((data) => {
       let cartData = data.result.books;
       if (cartData.length == 0) {
-        document.querySelector("#container").style.display = "none";
-        document.querySelector("#emptycart").classList.remove("d-none");
+        isCartEmpty(0);
       } else {
+        updateCartpageInfo();
         cartData.forEach((v) => {
-          updateCartCount();
           setCartItemCard(v);
           setCartItemTable(v);
           document.querySelector("#container").style.display = "block";
@@ -37,6 +36,7 @@ document.querySelector("button#clearCart").addEventListener("click", (e) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.result) {
+        updateCartpageInfo();
         cartCard.innerHTML = "";
         tableBody.innerHTML = "";
       }
@@ -104,7 +104,7 @@ function setCartItemTable({
     })
       .then((response) => response.json())
       .then((data) => {
-        updateCartCount();
+        updateCartpageInfo();
         let cartData = data.productInfo;
         tableRow.querySelector("#totalprice").childNodes[0].textContent =
           "$" + cartData.newTotal;
@@ -128,7 +128,7 @@ function setCartItemTable({
       })
         .then((response) => response.json())
         .then((data) => {
-          updateCartCount();
+          updateCartpageInfo();
           let cartData = data.productInfo;
           tableRow.querySelector("#totalprice").childNodes[0].textContent =
             "$" + cartData.newTotal;
@@ -143,7 +143,7 @@ function setCartItemTable({
       .then((data) => {
         console.log(data);
         if (data.result) {
-          updateCartCount();
+          updateCartpageInfo();
           tableRow.remove();
         }
       })
@@ -180,9 +180,7 @@ function setCartItemCard({
                       <input type="number" name="quantity" id="quantity" value="${quantity}" class="form-control form-control-sm text-center" />
                       <button id="minus" type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-down"></i></button>
                     </div>
-                    <span class="d-block mt-2 fs-3" id="totalprice">$${
-                      Number(book_price) * Number(quantity)
-                    }</span>
+                    <span class="d-block mt-2 fs-3" id="totalprice">$${Number(book_price) * Number(quantity)}</span>
                   </div>
                   <div class="col-2 ms-auto">
                     <button id="deleteItem" class="btn-close" type="button"></button>
@@ -209,7 +207,7 @@ function setCartItemCard({
     })
       .then((response) => response.json())
       .then((data) => {
-        updateCartCount();
+        updateCartpageInfo();
         let cartData = data.productInfo;
         card.querySelector("#totalprice").childNodes[0].textContent =
           "$" + cartData.newTotal;
@@ -236,7 +234,7 @@ function setCartItemCard({
       })
         .then((response) => response.json())
         .then((data) => {
-          updateCartCount();
+          updateCartpageInfo();
           let cartData = data.productInfo;
           card.querySelector("#totalprice").childNodes[0].textContent =
             "$" + cartData.newTotal;
@@ -251,7 +249,7 @@ function setCartItemCard({
       .then((data) => {
         console.log(data);
         if (data.result) {
-          updateCartCount();
+          updateCartpageInfo();
           card.remove();
         }
       })
@@ -266,14 +264,22 @@ const getQuery = (obj) => {
 
   return query.join("&");
 };
-function updateCartCount() {
+function updateCartpageInfo() {
   fetch("./src/php/update_stutes.php")
     .then((response) => response.json())
     .then((data) => {
-      document.querySelector("#itemsNo").textContent = Number(data.cartCount);
-      document.querySelector("#totalItemprice").textContent = Number(
-        data.total
-      );
+      isCartEmpty(data.cartCount)
+      document.querySelector("#cart-count").textContent = data.cartCount;
+      document.querySelector("span#itemsNo").textContent = data.cartCount;
+      document.querySelector("span#Total").textContent = data.total;
+      document.querySelector("span#totalItemprice").textContent =
+        "$" + data.total;
     })
     .catch((error) => alert(error));
+}
+const isCartEmpty = (count) => {
+  if (Number(count) === 0) {
+    document.querySelector("#container").style.display = "none";
+    document.querySelector("#emptycart").classList.remove("d-none");
+  }
 }

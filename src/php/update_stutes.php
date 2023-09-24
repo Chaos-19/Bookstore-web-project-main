@@ -1,5 +1,6 @@
 <?php
 include "config.php";
+
 try {
   session_start();
   $result = mysqli_query($conn, "SELECT id_customer FROM Customer WHERE customer_id = '{$_SESSION['user_id']}'");
@@ -28,5 +29,5 @@ try {
     "error message" => $e->getMessage()]);
 }
 
-
+mysqli_close($conn);
 ?>

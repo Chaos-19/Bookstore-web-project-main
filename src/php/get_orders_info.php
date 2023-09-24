@@ -46,4 +46,5 @@ try {
   echo json_encode(["status" => "error",
     "error message" => $e->getMessage()]);
 }
+mysqli_close($conn);
 ?>
